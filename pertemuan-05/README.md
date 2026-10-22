@@ -33,3 +33,31 @@ Pada tahap B, saya menambahkan tiga route baru untuk operasi Manajemen Kendaraan
 3. Hasil Pengujian
 
 Pengujian dilakukan dengan memeriksa konfigurasi route dan mengakses URL yang telah disiapkan. Menu Manajemen Kendaraan mengarah ke URL yang sesuai. Namun, halaman kendaraan belum dapat ditampilkan karena file "Mobil_controller.php" belum dibuat. Pesan "Controller tidak ditemukan" masih muncul dan merupakan kondisi yang diharapkan pada tahap ini.
+
+C.6
+
+## Berkas yang Ditambahkan / Diubah
+| Berkas | Keterangan |
+|---|---|
+| `application/controllers/Mobil_controller.php` | Controller kendaraan: `renderMobil()`, `validateMobilInput()`, `uploadFoto()`, `hapusFotoBaru()` |
+| `application/models/Mobil_model.php` | Model data kendaraan, method `getAll()` |
+| `application/views/admin/mobil_view.php` | Tampilan daftar kendaraan |
+| (tambahkan berkas lain, mis. menu sidebar) | ... |
+
+## Alur READ yang Diimplementasikan
+1. Admin klik menu **Manajemen Kendaraan** di sidebar.
+2. Request menuju `index.php/admin/mobil`.
+3. Controller memanggil `renderMobil()`.
+4. `renderMobil()` mengambil data lewat `$this->model->getAll()`.
+5. Data dikirim ke view `admin/mobil_view` dan ditampilkan dalam tabel.
+
+## Hasil Pengujian Aktual
+| No | Skenario | Hasil yang Diharapkan | Hasil Aktual | Status |
+|---|---|---|---|---|
+| 1 | Buka menu Manajemen Kendaraan | Daftar kendaraan tampil | (isi) | (Berhasil/Gagal) |
+| 2 | Data kosong | Tabel tampil tanpa error | (isi) | (isi) |
+| 3 | Akses tanpa login | Diarahkan ke halaman login | (isi) | (isi) |
+
+## Catatan
+- Pemeriksaan kode: (isi hasil membaca/meninjau kode)
+- Pengujian aktual: (isi hasil menjalankan aplikasi di browser)
