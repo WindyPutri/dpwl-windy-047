@@ -110,10 +110,10 @@ Fitur DELETE digunakan untuk menghapus data kendaraan berdasarkan nomor plat. Pr
 - [ ] Memeriksa query DELETE dan parameter nomor plat.
 - [ ] Memeriksa tombol hapus dan pesan hasil proses.
 
-4. Hasil Pengujian Aktual
+### 4. Hasil Pengujian Aktual
 
-- Penghapusan data kendaraan: [isi berdasarkan pengujian].
-- Data terhapus dari tabel: [isi berdasarkan pengujian].
-- Pesan berhasil atau gagal: [isi berdasarkan pengujian].
+- Penghapusan data kendaraan: Berhasil, data kendaraan dapat dihapus melalui tombol Hapus.
+- Data terhapus dari tabel: Berhasil, data kendaraan yang dipilih sudah tidak muncul lagi pada daftar kendaraan.
+- Pesan berhasil atau gagal: Berhasil, sistem menampilkan pesan bahwa data kendaraan berhasil dihapus.
 
 Catatan: Pemeriksaan kode tidak sama dengan pengujian langsung pada aplikasi. Isi hasil pengujian setelah benar-benar mencoba fitur DELETE.
