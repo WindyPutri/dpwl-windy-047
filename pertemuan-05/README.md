@@ -80,3 +80,13 @@ Pengujian
 Catatan
 
 Hasil pengujian ditulis berdasarkan pengujian yang benar-benar dilakukan pada aplikasi.
+
+E.6. Memperbarui README.md dan Mencatat Perubahan Git
+
+Pada tahap ini, saya memperbarui file "pertemuan-05/README.md" untuk mencatat implementasi fitur UPDATE data kendaraan. Perubahan dilakukan pada file "Mobil_model.php", "Mobil_controller.php", dan "mobil_view.php".
+
+Pengujian dilakukan dengan memeriksa halaman manajemen kendaraan, formulir tambah dan ubah data, validasi input, serta fitur unggah foto. Hasil pengujian dicatat berdasarkan kondisi aplikasi yang benar-benar dijalankan.
+
+Selanjutnya, saya memeriksa perubahan kode menggunakan perintah "git status" dan "git diff", kemudian menyimpan perubahan dengan commit dan mengirimkannya ke repositori GitHub menggunakan "git push".
+
+Kesimpulan: Implementasi UPDATE dan dokumentasi perubahan Git disiapkan sebagai bagian dari penyelesaian Pertemuan 5 sebelum melanjutkan ke tahap DELETE.
