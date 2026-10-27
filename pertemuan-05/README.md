@@ -61,3 +61,22 @@ C.6
 ## Catatan
 - Pemeriksaan kode: (isi hasil membaca/meninjau kode)
 - Pengujian aktual: (isi hasil menjalankan aplikasi di browser)
+
+P5 — CRUD Kendaraan (INSERT)
+
+Perubahan yang dilakukan
+
+1. Mobil_model.php: Menambahkan proses penyimpanan data kendaraan ke database.
+2. Mobil_controller.php: Menambahkan proses INSERT, validasi input kendaraan, dan pengunggahan foto.
+3. mobil_view.php: Menambahkan formulir kendaraan, input data, unggah foto, dan pratinjau foto.
+
+Pengujian
+
+- Penambahan data kendaraan: [isi hasil pengujian aktual].
+- Validasi input: [isi hasil pengujian aktual].
+- Unggah foto kendaraan: [isi hasil pengujian aktual].
+- Penyimpanan ke database: [isi hasil pengujian aktual].
+
+Catatan
+
+Hasil pengujian ditulis berdasarkan pengujian yang benar-benar dilakukan pada aplikasi.
