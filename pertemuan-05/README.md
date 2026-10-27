@@ -90,3 +90,30 @@ Pengujian dilakukan dengan memeriksa halaman manajemen kendaraan, formulir tamba
 Selanjutnya, saya memeriksa perubahan kode menggunakan perintah "git status" dan "git diff", kemudian menyimpan perubahan dengan commit dan mengirimkannya ke repositori GitHub menggunakan "git push".
 
 Kesimpulan: Implementasi UPDATE dan dokumentasi perubahan Git disiapkan sebagai bagian dari penyelesaian Pertemuan 5 sebelum melanjutkan ke tahap DELETE.
+
+F.4. Implementasi DELETE Data Kendaraan
+
+1. Implementasi
+
+Fitur DELETE digunakan untuk menghapus data kendaraan berdasarkan nomor plat. Proses penghapusan dilakukan melalui Controller dan Model menggunakan prepared statement, kemudian halaman menampilkan pesan hasil proses.
+
+2. Perubahan Berkas
+
+- "application/controllers/Mobil_controller.php" — menangani proses penghapusan data kendaraan.
+- "application/models/Mobil_model.php" — menjalankan query DELETE menggunakan prepared statement.
+- "application/views/admin/mobil_view.php" — menampilkan tombol aksi hapus kendaraan.
+- Berkas pendukung lain: sesuaikan dengan perubahan aktual.
+
+3. Pemeriksaan Kode
+
+- [ ] Memeriksa route dan method untuk proses hapus.
+- [ ] Memeriksa query DELETE dan parameter nomor plat.
+- [ ] Memeriksa tombol hapus dan pesan hasil proses.
+
+4. Hasil Pengujian Aktual
+
+- Penghapusan data kendaraan: [isi berdasarkan pengujian].
+- Data terhapus dari tabel: [isi berdasarkan pengujian].
+- Pesan berhasil atau gagal: [isi berdasarkan pengujian].
+
+Catatan: Pemeriksaan kode tidak sama dengan pengujian langsung pada aplikasi. Isi hasil pengujian setelah benar-benar mencoba fitur DELETE.
