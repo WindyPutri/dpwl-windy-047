@@ -138,3 +138,33 @@ Pengujian E.4 digunakan untuk memastikan bahwa hanya penyewa dengan kredensial y
 5. Dokumentasi
 
 Dokumentasi pengujian dapat berupa tangkapan layar halaman login, pesan login gagal, halaman profil setelah login, serta kondisi halaman profil setelah logout.
+
+F.5. Pengujian Pembaruan Profil dan Penanganan Input Tidak Valid
+
+1. Tujuan Pengujian
+
+Pengujian ini dilakukan untuk memastikan fitur profil penyewa dapat menampilkan dan memperbarui data dengan benar. Pengujian juga bertujuan memastikan sistem dapat menangani input yang tidak valid serta memproses unggahan foto KTP dan SIM A sesuai ketentuan.
+
+2. Langkah Pengujian
+
+Pengujian dilakukan dengan login menggunakan akun penyewa, kemudian membuka halaman profil melalui ikon profil pada aplikasi.
+
+No.| Skenario Pengujian| Hasil yang Diharapkan| Hasil Aktual
+1| Membuka halaman profil setelah login| Data profil penyewa ditampilkan| [Isi hasil pengujian]
+2| Mengubah data profil dengan input yang valid| Data berhasil diperbarui dan pesan keberhasilan ditampilkan| [Isi hasil pengujian]
+3| Mengisi data dengan input yang tidak valid| Sistem menolak data yang tidak sesuai dan menampilkan pesan kesalahan| [Isi hasil pengujian]
+4| Mengunggah foto KTP atau SIM A dengan format JPEG, PNG, atau WEBP dan ukuran maksimal 5 MB| Foto dapat diunggah sesuai ketentuan| [Isi hasil pengujian]
+5| Mengunggah foto dengan format atau ukuran yang tidak sesuai| Sistem menolak unggahan dan menampilkan pesan kesalahan| [Isi hasil pengujian]
+6| Memperbarui profil tanpa mengganti foto yang sudah ada| Foto lama tetap dipertahankan| [Isi hasil pengujian]
+
+3. Hasil Pengujian
+
+Pengujian dilakukan untuk memeriksa tampilan profil, proses penyimpanan perubahan data, validasi input, serta penanganan unggahan foto. Hasil setiap skenario dicatat berdasarkan kondisi yang benar-benar terjadi saat aplikasi dijalankan. Jika ditemukan kesalahan, dilakukan perbaikan dan pengujian ulang.
+
+4. Kesimpulan
+
+Tahap F.5 bertujuan memastikan fitur pembaruan profil penyewa berjalan sesuai kebutuhan dan sistem dapat menangani input yang tidak valid. Keberhasilan fitur ditentukan berdasarkan hasil pengujian aktual.
+
+5. Dokumentasi
+
+Dokumentasi pengujian dapat berupa tangkapan layar halaman profil, perubahan data yang berhasil disimpan, pesan kesalahan untuk input tidak valid, serta hasil pengujian unggahan foto.

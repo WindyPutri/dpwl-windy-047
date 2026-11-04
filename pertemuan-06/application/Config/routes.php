@@ -32,3 +32,4 @@ $route['katalog/detail/(:any)'] = 'Katalog_controller/detail/$1';
 // Route autentikasi penyewa
 $route['auth/register'] = 'Auth/register';
 $route['auth/login-penyewa'] = 'Auth/login_penyewa';
+$route['penyewa/profil'] = 'Penyewa_controller/profil';
