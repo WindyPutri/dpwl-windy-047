@@ -33,3 +33,38 @@ git push
 5. Kesimpulan
 
 Tahap A.2 bertujuan untuk menyimpan hasil praktikum P6 sebagai dasar pengembangan P7, memperbarui dokumentasi, serta memastikan perubahan pekerjaan tersimpan dalam repositori GitHub. Pengembangan fitur transaksi P7 dilanjutkan setelah aplikasi P6 dipastikan berfungsi dengan baik.
+
+B.2. Membuat Berkas Transaksi_controller.php
+
+1. Hasil Praktikum
+
+Pada tahap B.2, saya membuat berkas "application/controllers/Transaksi_controller.php" untuk menangani proses penambahan kendaraan ke keranjang transaksi. Controller ini menggunakan "Transaksi_model.php" untuk mengelola data transaksi dan memeriksa login penyewa serta metode permintaan yang digunakan.
+
+Controller menerima data nomor polisi kendaraan dan halaman asal, kemudian meneruskan proses penambahan kendaraan ke model. Setelah proses selesai, penyewa diarahkan kembali ke halaman asal dengan pesan keberhasilan atau kesalahan.
+
+2. Perubahan yang Dilakukan
+
+- Membuat berkas "Transaksi_controller.php" pada folder "application/controllers/".
+- Menghubungkan controller dengan "Transaksi_model.php".
+- Menambahkan method "tambah()" untuk menangani permintaan penambahan kendaraan ke keranjang.
+- Memeriksa autentikasi penyewa dan metode permintaan POST.
+- Menangani pesan keberhasilan dan kesalahan proses.
+
+3. Hasil Pengujian
+
+- Pemeriksaan berkas controller: Memastikan "Transaksi_controller.php" tersimpan pada folder yang sesuai.
+- Pemeriksaan model transaksi: Memastikan controller memanggil "Transaksi_model.php".
+- Pengujian penambahan kendaraan: Dilakukan setelah model, controller, route, dan tombol penambahan kendaraan terintegrasi.
+- Penanganan pesan: Memastikan proses menyediakan pesan keberhasilan atau kesalahan sesuai hasilnya.
+
+4. Perintah Git
+
+Setelah perubahan dicatat dan pengujian fitur terintegrasi selesai, jalankan perintah berikut melalui terminal pada folder repositori Git:
+
+git add .
+git commit -m "Membuat controller transaksi P7"
+git push
+
+5. Kesimpulan
+
+Pembuatan "Transaksi_controller.php" bertujuan untuk menangani permintaan penambahan kendaraan ke keranjang dan menghubungkan proses tersebut dengan model transaksi. Pengujian penambahan kendaraan secara menyeluruh dilakukan setelah komponen terkait terintegrasi.
