@@ -107,3 +107,34 @@ Pada tahap ini dilakukan pengujian terhadap fitur navigasi dari halaman katalog 
 **Kesimpulan:**
 
 Pengujian C.4 dilakukan untuk memastikan bahwa integrasi antara halaman katalog, route, controller, model, dan view detail kendaraan berjalan sesuai fungsinya. Navigasi katalog digunakan untuk mengirimkan nomor plat kendaraan ke halaman detail, kemudian controller mengambil data kendaraan melalui model dan menampilkannya pada view. Apabila nomor plat tidak ditemukan, aplikasi memberikan respons HTTP 404 dengan pesan bahwa kendaraan tidak ditemukan.
+
+E.4. Pengujian Login, Sesi, Logout, dan Pembatasan Akses Penyewa
+
+1. Tujuan Pengujian
+
+Pengujian ini dilakukan untuk memastikan fitur login dan logout penyewa berjalan dengan baik. Pengujian juga bertujuan memastikan sistem dapat memvalidasi username dan password, mengelola sesi login, serta membatasi akses ke halaman profil bagi penyewa yang belum login.
+
+2. Langkah Pengujian
+
+Pengujian dilakukan melalui halaman Login Penyewa menggunakan akun yang telah didaftarkan sebelumnya.
+
+No.| Skenario Pengujian| Hasil yang Diharapkan| Hasil Aktual
+1| Login menggunakan username dan password yang benar| Login berhasil dan sesi penyewa terbentuk| [Isi sesuai hasil pengujian]
+2| Login menggunakan username atau password yang salah| Sistem menolak login dan menampilkan pesan kesalahan| [Isi sesuai hasil pengujian]
+3| Membuka halaman profil setelah login| Halaman profil penyewa dapat diakses| [Isi sesuai hasil pengujian]
+4| Melakukan logout melalui menu penyewa| Sesi login dihapus dan penyewa keluar dari akun| [Isi sesuai hasil pengujian]
+5| Membuka halaman profil setelah logout| Sistem menolak akses dan mengarahkan penyewa ke halaman login| [Isi sesuai hasil pengujian]
+
+3. Hasil Pengujian
+
+Pengujian dilakukan untuk memeriksa proses autentikasi penyewa, pembentukan sesi login, proses logout, dan pembatasan akses halaman profil. Setiap skenario diuji untuk mengetahui apakah sistem telah berjalan sesuai dengan tujuan pengembangan P6.
+
+Berdasarkan hasil pengujian aktual, fitur yang berhasil akan dicatat sebagai berhasil, sedangkan fitur yang masih mengalami kendala akan diperbaiki dan diuji kembali.
+
+4. Kesimpulan
+
+Pengujian E.4 digunakan untuk memastikan bahwa hanya penyewa dengan kredensial yang benar yang dapat login, sesi login dikelola dengan baik, dan halaman profil tidak dapat diakses tanpa autentikasi. Status keberhasilan setiap fitur ditentukan berdasarkan hasil pengujian yang dilakukan pada aplikasi.
+
+5. Dokumentasi
+
+Dokumentasi pengujian dapat berupa tangkapan layar halaman login, pesan login gagal, halaman profil setelah login, serta kondisi halaman profil setelah logout.

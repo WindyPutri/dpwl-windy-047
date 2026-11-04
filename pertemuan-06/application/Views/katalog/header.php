@@ -30,4 +30,3 @@ https://templatemo.com/tm-559-zay-shop
 -->
 </head>
 <body>
-application\views\ka
