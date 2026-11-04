@@ -68,3 +68,36 @@ git push
 5. Kesimpulan
 
 Pembuatan "Transaksi_controller.php" bertujuan untuk menangani permintaan penambahan kendaraan ke keranjang dan menghubungkan proses tersebut dengan model transaksi. Pengujian penambahan kendaraan secara menyeluruh dilakukan setelah komponen terkait terintegrasi.
+
+B.3. Menambahkan Route Transaksi
+
+1. Hasil Praktikum
+
+Pada tahap B.3, saya menambahkan route transaksi pada berkas "application/config/routes.php". Route ini berfungsi menghubungkan URL "transaksi/tambah" dengan method "tambah()" pada "Transaksi_controller".
+
+2. Perubahan yang Dilakukan
+
+Menambahkan kode berikut pada bagian route P7 di berkas "application/config/routes.php" tanpa menghapus route yang sudah tersedia.
+
+// Route P7 - Transaksi dan Keranjang
+$route['transaksi/tambah'] = 'Transaksi_controller/tambah';
+
+Route tersebut digunakan untuk menerima permintaan POST dari formulir penambahan kendaraan ke keranjang.
+
+3. Hasil Pengujian
+
+- Pemeriksaan route: Memastikan route "transaksi/tambah" sudah ditambahkan pada "application/config/routes.php".
+- Pemeriksaan controller: Route diarahkan ke method "tambah()" pada "Transaksi_controller".
+- Pengujian fitur: Fitur penambahan kendaraan ke keranjang belum dapat diuji secara fungsional pada tahap ini karena formulir katalog dan detail kendaraan belum diintegrasikan.
+
+4. Perintah Git
+
+Setelah perubahan dicatat pada README dan seluruh isi workspace "dpwl-nim" disalin ke "dpwl-nim-nama/pertemuan-07", jalankan perintah berikut melalui terminal:
+
+git add .
+git commit -m "Menambahkan route penambahan kendaraan ke keranjang"
+git push
+
+5. Kesimpulan
+
+Penambahan route transaksi bertujuan menghubungkan URL "transaksi/tambah" dengan method "tambah()" pada "Transaksi_controller". Pengujian fitur penambahan kendaraan ke keranjang dilakukan setelah formulir, controller, dan model yang diperlukan telah terintegrasi.
