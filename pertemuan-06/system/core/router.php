@@ -29,7 +29,7 @@ class Router
             $this->show404('Route tidak valid.');
         }
 
-        $controller = ucfirst(strtolower($controllerSegment));
+        $controller = $controllerSegment;
         $controllerFile = APPPATH . 'controllers/' . $controller . '.php';
 
         if (!is_file($controllerFile)) {

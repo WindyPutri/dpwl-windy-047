@@ -168,3 +168,35 @@ Tahap F.5 bertujuan memastikan fitur pembaruan profil penyewa berjalan sesuai ke
 5. Dokumentasi
 
 Dokumentasi pengujian dapat berupa tangkapan layar halaman profil, perubahan data yang berhasil disimpan, pesan kesalahan untuk input tidak valid, serta hasil pengujian unggahan foto.
+
+G.6. Pengujian URL Aplikasi Tanpa index.php
+
+1. Tujuan Pengujian
+
+Pengujian ini bertujuan memastikan aplikasi rental mobil dapat diakses tanpa menuliskan "index.php" pada URL. Pengujian juga dilakukan untuk memastikan konfigurasi URL dan navigasi aplikasi tetap berfungsi setelah perubahan pada ".htaccess", "index.php", "config.php", "url_helper.php", dan "routes.php".
+
+2. Langkah Pengujian
+
+Pengujian dilakukan dengan membuka aplikasi melalui browser menggunakan URL utama:
+
+"http://localhost/dpwl-2522500047/"
+
+Selanjutnya, dilakukan pengujian dengan mengklik navigasi yang tersedia, seperti katalog kendaraan, detail kendaraan, login penyewa, dan profil penyewa.
+
+3. Hasil Pengujian
+
+No.| Skenario Pengujian| Hasil yang Diharapkan| Hasil Aktual
+1| Membuka URL utama tanpa "index.php"| Halaman katalog kendaraan ditampilkan| [Isi sesuai pengujian]
+2| Membuka halaman katalog| Halaman katalog dapat diakses tanpa "index.php"| [Isi sesuai pengujian]
+3| Membuka detail kendaraan| Halaman detail kendaraan tampil dengan benar| [Isi sesuai pengujian]
+4| Membuka halaman login penyewa| Halaman login dapat diakses melalui URL tanpa "index.php"| [Isi sesuai pengujian]
+5| Membuka halaman profil penyewa setelah login| Halaman profil dapat diakses sesuai status login| [Isi sesuai pengujian]
+6| Memeriksa URL setelah mengklik navigasi| URL tidak menampilkan "index.php"| [Isi sesuai pengujian]
+
+4. Kesimpulan
+
+Pengujian G.6 dilakukan untuk memastikan penghilangan "index.php" pada URL berjalan dengan baik dan seluruh navigasi aplikasi tetap berfungsi. Jika ditemukan kesalahan, dilakukan pemeriksaan konfigurasi URL dan route, kemudian pengujian diulangi.
+
+5. Dokumentasi
+
+Dokumentasi dapat berupa tangkapan layar URL utama, halaman katalog, halaman detail kendaraan, halaman login penyewa, dan halaman profil setelah perubahan URL diterapkan.

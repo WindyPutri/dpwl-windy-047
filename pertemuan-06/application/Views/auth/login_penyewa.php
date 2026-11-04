@@ -42,7 +42,7 @@ saat registrasi.
 </div>
 <?php endif; ?>
 <form
-action="<?= $e(site_url('auth/login_penyewa')) ?>"
+action="<?= $e(site_url('auth/login-penyewa')) ?>"
 method="post">
 <div class="mb-3">
 <label for="user_plg" class="form-label">
