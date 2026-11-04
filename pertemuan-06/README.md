@@ -79,3 +79,31 @@ Apabila seluruh pengujian berhasil, berarti integrasi Model, Controller, View, d
 ### 5. Kesimpulan
 
 Berdasarkan pengujian yang dilakukan, hasil integrasi fitur katalog kendaraan dicatat sesuai kondisi aktual aplikasi. Pengujian ini digunakan untuk memastikan proses pengambilan data kendaraan dari database hingga ditampilkan pada halaman katalog berjalan dengan benar.
+
+## C.4. Menguji Navigasi Katalog ke Detail dan Penanganan Galat
+
+Pada tahap ini dilakukan pengujian terhadap fitur navigasi dari halaman katalog kendaraan menuju halaman detail kendaraan. Pengujian bertujuan untuk memastikan bahwa foto atau nama kendaraan dapat diklik dan mengarahkan pengguna ke halaman detail sesuai dengan nomor plat kendaraan yang dipilih.
+
+**Langkah Pengujian:**
+
+1. Jalankan aplikasi DPWL melalui Laragon dengan mengaktifkan Apache dan MySQL.
+2. Buka halaman katalog kendaraan melalui alamat `http://localhost/dpwl-2522500047/index.php/katalog`.
+3. Pilih salah satu kendaraan dengan mengeklik foto atau nama kendaraan.
+4. Pastikan aplikasi mengarahkan pengguna ke halaman detail kendaraan sesuai nomor plat yang dipilih.
+5. Periksa apakah informasi kendaraan ditampilkan dengan benar, seperti nama kendaraan, nomor plat, status unit, dan informasi lainnya.
+6. Uji penanganan galat dengan membuka alamat detail menggunakan nomor plat yang tidak terdaftar.
+7. Pastikan aplikasi menampilkan pesan **"Kendaraan tidak ditemukan."** dengan kode respons HTTP 404.
+
+**Hasil Pengujian:**
+
+| Skenario | Hasil yang Diharapkan | Hasil Pengujian |
+|---|---|---|
+| Membuka halaman katalog | Daftar kendaraan ditampilkan | [Isi sesuai hasil pengujian] |
+| Mengeklik foto kendaraan | Berpindah ke halaman detail kendaraan | [Isi sesuai hasil pengujian] |
+| Mengeklik nama kendaraan | Berpindah ke halaman detail kendaraan | [Isi sesuai hasil pengujian] |
+| Membuka detail kendaraan dengan nomor plat yang terdaftar | Informasi kendaraan ditampilkan sesuai data | [Isi sesuai hasil pengujian] |
+| Membuka detail dengan nomor plat yang tidak terdaftar | Menampilkan pesan "Kendaraan tidak ditemukan." dengan HTTP 404 | [Isi sesuai hasil pengujian] |
+
+**Kesimpulan:**
+
+Pengujian C.4 dilakukan untuk memastikan bahwa integrasi antara halaman katalog, route, controller, model, dan view detail kendaraan berjalan sesuai fungsinya. Navigasi katalog digunakan untuk mengirimkan nomor plat kendaraan ke halaman detail, kemudian controller mengambil data kendaraan melalui model dan menampilkannya pada view. Apabila nomor plat tidak ditemukan, aplikasi memberikan respons HTTP 404 dengan pesan bahwa kendaraan tidak ditemukan.
