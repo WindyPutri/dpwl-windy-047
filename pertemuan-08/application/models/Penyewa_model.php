@@ -269,4 +269,26 @@ class Penyewa_model
 
     return $success;
   }
+  public function getAll(): array
+{
+    $sql = "SELECT
+                user_plg,
+                nik,
+                nm_lngkp,
+                no_hp,
+                almt_lngkp,
+                ft_ktp,
+                ft_sim_a
+            FROM t_penyewa
+            ORDER BY user_plg ASC";
+
+    $result = $this->db->query($sql);
+
+    if (!$result) {
+        throw new RuntimeException(
+            'Data penyewa gagal diambil.'
+        );
+    }
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
 }

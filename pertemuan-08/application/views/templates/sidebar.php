@@ -59,7 +59,6 @@ search"></i>
 <i class="fa fa-car"></i> <span>Manajemen Penyewa</span>
 </a>
 </li>
-
 </ul>
 <!-- /.sidebar-menu -->
 </section>

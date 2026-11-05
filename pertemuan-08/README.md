@@ -33,3 +33,37 @@ Hasil pengujian aktual: Diisi setelah pengujian langsung dilakukan pada aplikasi
 5. Kesimpulan
 
 Dengan pembuatan "penyewa_view.php", saya telah menyiapkan bagian tampilan untuk fitur Manajemen Penyewa. Tampilan ini menjadi bagian dari pengembangan aplikasi rental mobil pada sisi admin. Agar seluruh fitur dapat berjalan, View perlu dihubungkan dengan Controller, Model, dan route yang sesuai.
+
+Dokumentasi Penambahan Data Penyewa
+
+1. Tujuan
+
+Menambahkan fitur untuk memasukkan data penyewa ke dalam sistem rental mobil agar data penyewa dapat tersimpan di database dan ditampilkan pada halaman manajemen penyewa.
+
+2. Langkah Pengerjaan
+
+1. Membuka proyek DPWL menggunakan Visual Studio Code.
+2. Memeriksa file "Penyewa_controller.php" untuk menambahkan fungsi pengelolaan data penyewa.
+3. Memeriksa file "Penyewa_model.php" untuk memastikan fungsi penyimpanan data terhubung dengan database.
+4. Menyiapkan formulir penambahan data penyewa pada halaman "penyewa_view.php" atau view yang digunakan untuk halaman admin.
+5. Membuat formulir yang berisi data penyewa, seperti username, NIK, nama lengkap, nomor HP, dan alamat lengkap.
+6. Menghubungkan formulir dengan controller agar data yang dikirim dapat diproses dan disimpan ke tabel "t_penyewa".
+7. Menguji fitur dengan memasukkan data penyewa baru dan memeriksa hasilnya pada halaman manajemen penyewa serta database.
+
+3. Hasil Pengujian Aktual
+
+- Pengisian formulir: [Isi berdasarkan hasil pengujian].
+- Penyimpanan data: [Berhasil/Gagal berdasarkan pengujian].
+- Data tersimpan di tabel "t_penyewa": [Ya/Tidak berdasarkan pemeriksaan database].
+- Pesan yang ditampilkan: [Isi pesan berhasil atau gagal yang muncul].
+
+4. Kesimpulan
+
+Fitur penambahan data penyewa dibuat agar admin dapat memasukkan data penyewa melalui formulir pada aplikasi rental mobil. Data yang dikirim diproses oleh controller, diteruskan ke model, kemudian disimpan ke database. Pengujian dilakukan untuk memastikan data dapat tersimpan dengan benar.
+
+5. Perubahan File
+
+- "application/controllers/Penyewa_controller.php" — mengatur proses penambahan data penyewa.
+- "application/models/Penyewa_model.php" — mengatur penyimpanan data penyewa ke database.
+- "application/views/admin/penyewa_view.php" — menampilkan formulir dan tabel data penyewa, jika menggunakan file view tersebut.
+- "application/config/routes.php" — menambahkan atau memeriksa route untuk fitur penambahan data penyewa.
