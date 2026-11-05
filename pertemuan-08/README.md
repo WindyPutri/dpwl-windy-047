@@ -67,3 +67,4 @@ Fitur penambahan data penyewa dibuat agar admin dapat memasukkan data penyewa me
 - "application/models/Penyewa_model.php" — mengatur penyimpanan data penyewa ke database.
 - "application/views/admin/penyewa_view.php" — menampilkan formulir dan tabel data penyewa, jika menggunakan file view tersebut.
 - "application/config/routes.php" — menambahkan atau memeriksa route untuk fitur penambahan data penyewa.
+
