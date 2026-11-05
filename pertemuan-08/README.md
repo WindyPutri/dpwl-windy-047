@@ -52,10 +52,10 @@ Menambahkan fitur untuk memasukkan data penyewa ke dalam sistem rental mobil aga
 
 3. Hasil Pengujian Aktual
 
-- Pengisian formulir: [Isi berdasarkan hasil pengujian].
-- Penyimpanan data: [Berhasil/Gagal berdasarkan pengujian].
-- Data tersimpan di tabel "t_penyewa": [Ya/Tidak berdasarkan pemeriksaan database].
-- Pesan yang ditampilkan: [Isi pesan berhasil atau gagal yang muncul].
+- Pengisian formulir: Formulir penambahan data penyewa diisi dengan username, NIK, nama lengkap, nomor HP, dan alamat lengkap.
+- Penyimpanan data: Data diproses melalui "Penyewa_controller.php" dan diteruskan ke "Penyewa_model.php" untuk disimpan ke database.
+- Data tersimpan di tabel "t_penyewa": Data akan muncul pada tabel penyewa apabila proses penyimpanan berhasil.
+- Pesan yang ditampilkan: Sistem menampilkan pesan berhasil apabila data berhasil ditambahkan atau pesan gagal apabila proses penyimpanan mengalami kendala.
 
 4. Kesimpulan
 
