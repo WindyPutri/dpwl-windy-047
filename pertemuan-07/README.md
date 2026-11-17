@@ -578,3 +578,88 @@ Pada tahap F.3, saya membuat halaman konfirmasi transaksi yang menampilkan rinci
 
 Setelah perubahan disalin ke folder "dpwl-nim-nama/pertemuan-07", saya menyimpan dokumentasi dan kode menggunakan Git dengan perintah berikut:
 
+F.3.3. Menguji Proses Checkout
+
+1. Tujuan Pengujian
+
+Pada tahap ini, saya melakukan pengujian proses checkout untuk memastikan transaksi penyewaan kendaraan dapat diajukan kepada admin. Sistem harus mengubah status transaksi dari "keranjang" menjadi "diajukan" dan mencatat pembayaran uang muka (DP) sebesar 30% dari total biaya sewa ke tabel "t_bayar".
+
+Pengujian dilakukan menggunakan transaksi percobaan yang sudah disiapkan.
+
+2. Langkah-Langkah Pengujian
+
+1. Membuka halaman konfirmasi transaksi dan memeriksa kembali seluruh rincian penyewaan kendaraan.
+2. Menekan tombol Konfirmasi dan Ajukan Transaksi, kemudian menyetujui dialog konfirmasi.
+3. Memastikan aplikasi memproses permintaan menggunakan metode "POST" dan mengarahkan penyewa ke halaman katalog dengan pesan bahwa transaksi telah diajukan dan menunggu persetujuan admin.
+4. Membuka phpMyAdmin dan memeriksa tabel "t_sewa". Memastikan nilai "status_sewa" berubah dari "keranjang" menjadi "diajukan".
+5. Memeriksa tabel "t_bayar" dan memastikan terdapat satu catatan pembayaran DP untuk kode transaksi tersebut dengan ketentuan:
+   - "jns_byr" bernilai "dp".
+   - "mtode_byr" bernilai "transfer".
+   - "nominal" sesuai dengan DP sebesar 30% dari total sewa.
+   - "sttus_byr" bernilai "pending".
+6. Memastikan transaksi yang sudah diajukan tidak dapat di-checkout kembali sebagai keranjang aktif.
+
+3. Hasil Pengujian
+
+No.| Pengujian| Hasil Aktual
+1| Tombol konfirmasi memproses checkout| Belum diverifikasi
+2| Aplikasi menampilkan pesan transaksi berhasil diajukan| Belum diverifikasi
+3| Status transaksi berubah menjadi "diajukan" pada tabel "t_sewa"| Belum diverifikasi
+4| Catatan DP tersimpan pada tabel "t_bayar"| Belum diverifikasi
+5| Nominal DP sesuai dengan 30% total biaya sewa| Belum diverifikasi
+6| Status pembayaran tercatat sebagai "pending"| Belum diverifikasi
+7| Transaksi yang telah diajukan tidak dapat di-checkout kembali| Belum diverifikasi
+
+Catatan: Hasil pengujian diisi sesuai kondisi aplikasi yang sebenarnya. Jika belum diuji, biarkan berstatus “Belum diverifikasi”.
+
+4. Kesimpulan
+
+Pada tahap F.3.3, saya menguji proses checkout untuk memastikan sistem dapat mengajukan transaksi penyewaan kepada admin, memperbarui status transaksi, dan mencatat pembayaran DP sebesar 30% dengan status "pending". Proses ini merupakan pengajuan transaksi, bukan bukti bahwa pembayaran sudah dilakukan atau transaksi sudah disetujui admin.
+
+5. Git dan GitHub
+
+Setelah pengujian dan dokumentasi selesai, saya menyimpan perubahan ke repositori GitHub menggunakan perintah berikut:
+
+git add .
+F.3.3. Menguji Proses Checkout
+
+1. Tujuan Pengujian
+
+Pada tahap ini, saya melakukan pengujian proses checkout untuk memastikan transaksi penyewaan kendaraan dapat diajukan kepada admin. Sistem harus mengubah status transaksi dari "keranjang" menjadi "diajukan" dan mencatat pembayaran uang muka (DP) sebesar 30% dari total biaya sewa ke tabel "t_bayar".
+
+Pengujian dilakukan menggunakan transaksi percobaan yang sudah disiapkan.
+
+2. Langkah-Langkah Pengujian
+
+1. Membuka halaman konfirmasi transaksi dan memeriksa kembali seluruh rincian penyewaan kendaraan.
+2. Menekan tombol Konfirmasi dan Ajukan Transaksi, kemudian menyetujui dialog konfirmasi.
+3. Memastikan aplikasi memproses permintaan menggunakan metode "POST" dan mengarahkan penyewa ke halaman katalog dengan pesan bahwa transaksi telah diajukan dan menunggu persetujuan admin.
+4. Membuka phpMyAdmin dan memeriksa tabel "t_sewa". Memastikan nilai "status_sewa" berubah dari "keranjang" menjadi "diajukan".
+5. Memeriksa tabel "t_bayar" dan memastikan terdapat satu catatan pembayaran DP untuk kode transaksi tersebut dengan ketentuan:
+   - "jns_byr" bernilai "dp".
+   - "mtode_byr" bernilai "transfer".
+   - "nominal" sesuai dengan DP sebesar 30% dari total sewa.
+   - "sttus_byr" bernilai "pending".
+6. Memastikan transaksi yang sudah diajukan tidak dapat di-checkout kembali sebagai keranjang aktif.
+
+3. Hasil Pengujian
+
+No.| Pengujian| Hasil Aktual
+1| Tombol konfirmasi memproses checkout| Belum diverifikasi
+2| Aplikasi menampilkan pesan transaksi berhasil diajukan| Belum diverifikasi
+3| Status transaksi berubah menjadi "diajukan" pada tabel "t_sewa"| Belum diverifikasi
+4| Catatan DP tersimpan pada tabel "t_bayar"| Belum diverifikasi
+5| Nominal DP sesuai dengan 30% total biaya sewa| Belum diverifikasi
+6| Status pembayaran tercatat sebagai "pending"| Belum diverifikasi
+7| Transaksi yang telah diajukan tidak dapat di-checkout kembali| Belum diverifikasi
+
+Catatan: Hasil pengujian diisi sesuai kondisi aplikasi yang sebenarnya. Jika belum diuji, biarkan berstatus “Belum diverifikasi”.
+
+4. Kesimpulan
+
+Pada tahap F.3.3, saya menguji proses checkout untuk memastikan sistem dapat mengajukan transaksi penyewaan kepada admin, memperbarui status transaksi, dan mencatat pembayaran DP sebesar 30% dengan status "pending". Proses ini merupakan pengajuan transaksi, bukan bukti bahwa pembayaran sudah dilakukan atau transaksi sudah disetujui admin.
+
+5. Git dan GitHub
+
+Setelah pengujian dan dokumentasi selesai, saya menyimpan perubahan ke repositori GitHub menggunakan perintah berikut:
+
