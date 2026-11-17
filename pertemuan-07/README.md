@@ -158,3 +158,50 @@ Catatan hasil pengujian aktual: Isi hasil pengujian berdasarkan kondisi yang ben
 4. Kesimpulan
 
 Berdasarkan pekerjaan pada bagian C, halaman detail dan katalog kendaraan telah disesuaikan agar tombol Tambah ke Keranjang mengikuti status ketersediaan kendaraan dan status login penyewa. Formulir juga diarahkan ke route "transaksi/tambah" menggunakan metode POST. Tahap ini menjadi persiapan sebelum pengujian proses penambahan kendaraan ke keranjang secara fungsional.
+
+Bagian D.1
+
+Menampilkan Pesan Notifikasi dan Tautan Keranjang pada Navbar
+
+1. Tujuan
+
+Pada tahap D.1, saya melakukan perubahan pada navbar agar dapat menampilkan pesan notifikasi setelah penyewa melakukan suatu tindakan dan menyediakan tautan menuju halaman keranjang. Saya juga menambahkan tampilan jumlah kendaraan pada ikon keranjang.
+
+2. Berkas yang Diubah
+
+Berkas yang diubah pada tahap ini adalah:
+
+"application/views/katalog/navbar.php"
+
+3. Perubahan yang Dilakukan
+
+Perubahan yang saya lakukan meliputi:
+
+1. Memeriksa status login penyewa menggunakan session "penyewa_user_plg".
+2. Mengambil pesan notifikasi dari session "flash_penyewa_nav", kemudian menghapus session tersebut setelah pesannya diambil.
+3. Menambahkan variabel "jumlahKeranjang" untuk menampung jumlah kendaraan dalam keranjang.
+4. Menambahkan notifikasi transaksi dari session "flash_transaksi" agar pesan berhasil atau gagal dapat ditampilkan pada halaman.
+5. Menambahkan tautan pada ikon keranjang yang mengarah ke "transaksi/keranjang".
+6. Menampilkan jumlah kendaraan pada ikon keranjang menggunakan variabel "jumlahKeranjang".
+7. Menggunakan "htmlspecialchars()" untuk membantu mengamankan teks yang ditampilkan pada halaman.
+
+4. Hasil Pengujian
+
+Pengujian dilakukan melalui browser menggunakan localhost.
+
+No.| Skenario Pengujian| Hasil yang Diharapkan
+1| Membuka halaman katalog| Navbar tampil tanpa error.
+2| Menampilkan pesan notifikasi| Pesan notifikasi muncul dan dapat ditutup.
+3| Mengeklik ikon keranjang| Pengguna diarahkan ke halaman "transaksi/keranjang".
+4| Memeriksa jumlah keranjang| Jumlah kendaraan ditampilkan sesuai data yang dikirim Controller setelah integrasi selesai.
+
+Catatan: Hasil aktual disesuaikan dengan pengujian yang dilakukan. Pengujian jumlah kendaraan dilakukan setelah integrasi Controller dan Model selesai.
+
+5. Kesimpulan
+
+Pada tahap D.1, navbar diperbarui agar dapat menampilkan pesan notifikasi, menyediakan tautan menuju halaman keranjang, dan menampilkan jumlah kendaraan. Perubahan ini mempersiapkan tampilan navbar untuk terintegrasi dengan fitur transaksi pada tahap berikutnya.
+
+6. Perintah Git
+
+Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", lalu jalankan perintah berikut melalui terminal VS Code.
+
