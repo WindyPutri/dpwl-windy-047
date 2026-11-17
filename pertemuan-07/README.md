@@ -383,3 +383,117 @@ Pada tahap E.1, saya mengembangkan Model transaksi dengan menambahkan method "ta
 
 Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", kemudian jalankan perintah berikut pada terminal VS Code.
 
+F.1. Membuat Halaman Isi Keranjang
+
+1. Tujuan
+
+Pada tahap ini, saya membuat halaman isi keranjang untuk menampilkan kendaraan yang telah ditambahkan oleh penyewa. Halaman ini juga menampilkan informasi penyewaan, seperti tanggal mulai, tanggal selesai, waktu pengambilan, harga sewa, durasi, dan total biaya. Selain itu, halaman menyediakan pilihan untuk memperbarui periode sewa, menghapus kendaraan dari keranjang, dan melanjutkan ke proses checkout.
+
+2. Berkas yang Dibuat
+
+Berkas yang dibuat pada tahap ini adalah:
+
+"application/views/transaksi/keranjang.php"
+
+Halaman dibuat menggunakan PHP, HTML, dan komponen tampilan Bootstrap yang mengikuti struktur aplikasi P6. View menggunakan data keranjang yang dikirimkan oleh Controller transaksi.
+
+3. Proses Pengerjaan
+
+Langkah-langkah yang dilakukan:
+
+1. Membuat folder "transaksi" di dalam "application/views" apabila folder tersebut belum tersedia.
+2. Membuat berkas "keranjang.php".
+3. Menambahkan header, navbar, dan footer dari tampilan katalog yang sudah tersedia.
+4. Menampilkan informasi transaksi dan daftar kendaraan yang berada di keranjang.
+5. Menampilkan harga sewa, durasi, subtotal, dan total biaya.
+6. Menambahkan formulir untuk memperbarui tanggal sewa dan waktu pengambilan.
+7. Menambahkan tombol untuk menghapus kendaraan dan melanjutkan ke checkout.
+8. Menambahkan validasi pada formulir periode sewa agar tanggal dan waktu yang dipilih sesuai ketentuan.
+9. Memastikan data yang ditampilkan melalui HTML diolah menggunakan "htmlspecialchars()" untuk membantu mencegah keluaran HTML yang tidak aman.
+
+4. Pengujian
+
+Pengujian dilakukan melalui browser setelah Controller dan Model transaksi terintegrasi.
+
+No.| Pengujian| Hasil
+1| Membuka halaman keranjang sebagai penyewa yang memiliki kendaraan di keranjang.| Isi sesuai hasil pengujian aktual.
+2| Memeriksa informasi kendaraan dan biaya sewa.| Isi sesuai hasil pengujian aktual.
+3| Memeriksa formulir tanggal sewa dan waktu pengambilan.| Isi sesuai hasil pengujian aktual.
+4| Memeriksa tombol hapus kendaraan dan checkout.| Isi sesuai hasil pengujian aktual.
+5| Menguji validasi tanggal dan waktu pengambilan.| Isi sesuai hasil pengujian aktual.
+
+Catatan: Hasil pengujian harus diisi berdasarkan pengujian yang benar-benar dilakukan. Jika belum diuji, tuliskan Belum diuji.
+
+5. Kesimpulan
+
+Pada tahap F.1, saya membuat View halaman isi keranjang pada aplikasi penyewaan mobil. Halaman ini digunakan untuk melihat kendaraan yang dipilih beserta rincian periode dan biaya sewa. Fitur tersebut menjadi bagian dari proses transaksi sebelum penyewa melanjutkan ke halaman konfirmasi checkout.
+
+6. Git
+
+Setelah perubahan disimpan dan diuji, saya menyimpan hasil praktikum ke folder "dpwl-nim-nama/pertemuan-07/", lalu menjalankan perintah Git berikut melalui terminal VS Code:
+
+F.2. Menambahkan Method "keranjang()" dan Lainnya pada Controller Transaksi
+
+1. Tujuan
+
+Pada tahap ini, saya memperbarui "Transaksi_controller.php" dengan menambahkan method untuk menampilkan isi keranjang dan mengelola proses transaksi. Controller menghubungkan permintaan dari pengguna dengan Model transaksi dan View keranjang.
+
+2. Berkas yang Diubah
+
+Berkas utama yang diperbarui:
+
+"application/controllers/Transaksi_controller.php"
+
+Selain itu, route transaksi pada berkas berikut perlu diperiksa dan dilengkapi sesuai modul:
+
+"application/config/routes.php"
+
+3. Proses Pengerjaan
+
+Langkah-langkah yang dilakukan:
+
+1. Membuka berkas "Transaksi_controller.php" di Visual Studio Code.
+2. Menambahkan method "keranjang()" tanpa menghapus method yang sudah tersedia.
+3. Memastikan pengguna harus login sebagai penyewa dan permintaan halaman keranjang menggunakan metode GET.
+4. Mengambil kode keranjang aktif milik penyewa melalui Model transaksi.
+5. Menampilkan pesan jika keranjang masih kosong dan mengarahkan pengguna kembali ke katalog.
+6. Mengambil detail keranjang berdasarkan kode transaksi dan identitas penyewa yang sedang login.
+7. Mengirim data keranjang, pesan notifikasi, dan jumlah kendaraan ke View "transaksi/keranjang".
+8. Menambahkan method lain sesuai modul, yaitu "perbaruiPeriode()", "hapus()", dan "checkout()" untuk mendukung pengelolaan keranjang dan proses checkout.
+9. Memastikan route transaksi telah terdaftar di "routes.php", tanpa menghapus route lain yang sudah digunakan aplikasi.
+
+4. Route yang Digunakan
+
+Route transaksi yang digunakan sesuai tahapan P7 antara lain:
+
+// Route P7 - Transaksi, Keranjang, dan Checkout
+$route['transaksi/tambah'] = 'Transaksi_controller/tambah';
+$route['transaksi/keranjang'] = 'Transaksi_controller/keranjang';
+$route['transaksi/perbarui-periode'] = 'Transaksi_controller/perbaruiPeriode';
+$route['transaksi/hapus'] = 'Transaksi_controller/hapus';
+$route['transaksi/hapus/(:any)'] = 'Transaksi_controller/hapus/$1';
+$route['transaksi/checkout'] = 'Transaksi_controller/checkout';
+
+Route di atas perlu disesuaikan dengan route yang sudah ada agar tidak terjadi duplikasi.
+
+5. Pengujian
+
+Pengujian dilakukan melalui browser setelah Model, Controller, View, dan route terintegrasi.
+
+No.| Pengujian| Hasil
+1| Login sebagai penyewa yang memiliki keranjang, lalu buka halaman "transaksi/keranjang".| Isi sesuai pengujian aktual.
+2| Login sebagai penyewa yang belum memiliki keranjang aktif.| Isi sesuai pengujian aktual.
+3| Memastikan data yang ditampilkan merupakan keranjang milik akun yang sedang login.| Isi sesuai pengujian aktual.
+4| Memeriksa jumlah kendaraan pada ikon keranjang di navbar.| Isi sesuai pengujian aktual.
+5| Memeriksa fungsi memperbarui periode, menghapus kendaraan, dan melanjutkan checkout.| Isi sesuai pengujian aktual.
+
+Catatan: Jika pengujian belum dilakukan, tuliskan Belum diuji. Jangan menyatakan fitur berhasil sebelum benar-benar dicoba.
+
+6. Kesimpulan
+
+Pada tahap F.2, saya menambahkan method untuk menampilkan keranjang dan melengkapi Controller transaksi agar terhubung dengan Model, View, serta route. Dengan demikian, penyewa dapat mengakses keranjang miliknya dan melanjutkan proses pengelolaan transaksi sebelum checkout.
+
+7. Git
+
+Setelah perubahan disimpan dan pengujian dilakukan, saya menyimpan hasil praktikum ke folder "dpwl-nim-nama/pertemuan-07/", kemudian menjalankan perintah berikut di terminal VS Code:
+
