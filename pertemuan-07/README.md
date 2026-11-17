@@ -282,3 +282,50 @@ Pada tahap D.2, saya mengintegrasikan Model transaksi dengan Controller katalog 
 
 Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", lalu jalankan perintah berikut melalui terminal VS Code.
 
+README P7 – Bagian D.2.3
+
+Memperbarui Penyewa_controller.php
+
+1. Tujuan
+
+Pada tahap D.2.3, saya melakukan perubahan pada Controller penyewa agar jumlah kendaraan dalam keranjang tetap ditampilkan pada navbar ketika penyewa membuka halaman profil. Jumlah keranjang juga harus tetap tampil ketika pengguna memperbarui profil atau mengalami kesalahan validasi formulir.
+
+2. Berkas yang Diubah
+
+Berkas yang diperbarui adalah:
+
+"application/controllers/Penyewa_controller.php"
+
+3. Perubahan yang Dilakukan
+
+Perubahan yang saya lakukan meliputi:
+
+1. Menambahkan pemanggilan "Transaksi_model.php" menggunakan "require_once".
+2. Menambahkan properti "Transaksi_model $transaksiModel" di dalam class "Penyewa_controller".
+3. Menambahkan inisialisasi "Transaksi_model" pada method "__construct()".
+4. Pada method "profil()", menghitung jumlah kendaraan dalam keranjang menggunakan method "getJumlahMobilKeranjang($userPlg)".
+5. Mengirimkan variabel "jumlahKeranjang" ke View "penyewa/profil".
+6. Menambahkan data "jumlahKeranjang" pada tampilan profil ketika validasi formulir gagal.
+7. Memperbarui method "renderProfilError()" agar jumlah keranjang tetap dikirim ketika halaman profil menampilkan pesan kesalahan.
+
+4. Hasil Pengujian
+
+Pengujian dilakukan melalui browser menggunakan localhost.
+
+No.| Skenario Pengujian| Hasil yang Diharapkan
+1| Login sebagai penyewa| Penyewa berhasil masuk ke aplikasi.
+2| Membuka halaman profil| Jumlah keranjang tampil pada navbar sesuai data penyewa.
+3| Memperbarui profil dengan data valid| Profil berhasil diperbarui dan jumlah keranjang tetap tampil.
+4| Mengisi formulir dengan data tidak valid| Pesan kesalahan validasi muncul dan jumlah keranjang tetap tampil.
+5| Membuka kembali halaman katalog dan detail kendaraan| Kedua halaman tetap berjalan dengan baik setelah perubahan Controller profil.
+
+Catatan hasil aktual: Sesuaikan keterangan pengujian dengan hasil yang benar-benar muncul pada aplikasi. Jika belum diuji, jangan menandai pengujian sebagai berhasil.
+
+5. Kesimpulan
+
+Pada tahap D.2.3, saya memperbarui "Penyewa_controller.php" agar jumlah kendaraan dalam keranjang dapat ditampilkan pada navbar halaman profil. Jumlah tersebut tetap dikirim ketika profil berhasil ditampilkan maupun ketika terjadi kesalahan validasi. Dengan demikian, tampilan jumlah keranjang dapat digunakan secara konsisten pada halaman katalog, detail kendaraan, dan profil penyewa.
+
+6. Perintah Git
+
+Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", kemudian jalankan perintah berikut melalui terminal VS Code.
+
