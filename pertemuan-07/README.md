@@ -205,3 +205,80 @@ Pada tahap D.1, navbar diperbarui agar dapat menampilkan pesan notifikasi, menye
 
 Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", lalu jalankan perintah berikut melalui terminal VS Code.
 
+Bagian D.2
+
+Mengirim Jumlah Keranjang ke Halaman Katalog, Detail Kendaraan, dan Profil Penyewa
+
+1. Tujuan
+
+Pada tahap D.2, saya melakukan perubahan pada Model dan Controller agar jumlah kendaraan yang ada di keranjang dapat ditampilkan pada ikon keranjang di navbar. Jumlah kendaraan dihitung berdasarkan akun penyewa yang sedang login.
+
+2. Berkas yang Diubah
+
+Berkas yang diperbarui pada tahap ini adalah:
+
+1. "application/models/Transaksi_model.php"
+2. "application/controllers/Katalog_controller.php"
+3. "application/controllers/Penyewa_controller.php"
+
+3. Perubahan yang Dilakukan
+
+D.2.1. Memperbarui Transaksi_model.php
+
+Saya menambahkan method "getJumlahMobilKeranjang()" untuk menghitung jumlah kendaraan dalam keranjang penyewa.
+
+Perubahan yang dilakukan:
+
+- Menghitung jumlah kendaraan menggunakan tabel "t_pilih" dan "t_sewa".
+- Menghubungkan kedua tabel melalui "kode_sewa".
+- Menghitung kendaraan berdasarkan akun penyewa yang sedang login.
+- Hanya menghitung transaksi dengan status "keranjang".
+- Menggunakan prepared statement untuk menjalankan query database.
+- Mengembalikan nilai 0 jika username penyewa kosong atau tidak ada kendaraan dalam keranjang.
+
+D.2.2. Memperbarui Katalog_controller.php
+
+Saya menyesuaikan Controller katalog agar mengirimkan jumlah keranjang ke halaman katalog dan detail kendaraan.
+
+Perubahan yang dilakukan:
+
+- Menambahkan pemanggilan "Transaksi_model.php".
+- Menambahkan properti dan inisialisasi Model transaksi.
+- Pada method "index()", mengirimkan data "jumlahKeranjang" ke halaman katalog.
+- Pada method "detail()", mengirimkan data "jumlahKeranjang" ke halaman detail kendaraan.
+- Jika penyewa belum login, jumlah keranjang diatur menjadi 0.
+
+D.2.3. Memperbarui Penyewa_controller.php
+
+Saya menyesuaikan Controller penyewa agar jumlah keranjang juga ditampilkan ketika penyewa membuka halaman profil.
+
+Perubahan yang dilakukan:
+
+- Menambahkan pemanggilan dan inisialisasi "Transaksi_model".
+- Menghitung jumlah kendaraan dalam keranjang berdasarkan akun penyewa.
+- Mengirimkan variabel "jumlahKeranjang" ke View profil.
+- Memastikan jumlah keranjang tetap dikirim ketika profil menampilkan pesan kesalahan validasi atau kesalahan lainnya.
+
+4. Hasil Pengujian
+
+Pengujian dilakukan melalui browser menggunakan localhost.
+
+No.| Skenario Pengujian| Hasil yang Diharapkan
+1| Membuka katalog tanpa login| Halaman tetap tampil dan jumlah keranjang bernilai 0.
+2| Membuka detail kendaraan tanpa login| Informasi kendaraan tampil tanpa menampilkan jumlah keranjang milik akun lain.
+3| Login sebagai penyewa| Navbar menampilkan jumlah keranjang milik akun tersebut.
+4| Membuka katalog setelah login| Jumlah keranjang tampil sesuai data penyewa.
+5| Membuka detail kendaraan setelah login| Jumlah keranjang tetap tampil sesuai data penyewa.
+6| Membuka halaman profil penyewa| Jumlah keranjang tetap tampil pada navbar profil.
+7| Penyewa belum memiliki kendaraan dalam keranjang| Jumlah yang ditampilkan adalah 0.
+
+Catatan: Hasil pengujian aktual harus disesuaikan dengan hasil yang benar-benar muncul saat aplikasi dijalankan.
+
+5. Kesimpulan
+
+Pada tahap D.2, saya mengintegrasikan Model transaksi dengan Controller katalog dan Controller penyewa agar jumlah kendaraan dalam keranjang dapat dikirim ke navbar. Jumlah tersebut dihitung berdasarkan akun penyewa yang sedang login, sehingga informasi keranjang pada halaman katalog, detail kendaraan, dan profil penyewa dapat ditampilkan sesuai data masing-masing akun.
+
+6. Perintah Git
+
+Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", lalu jalankan perintah berikut melalui terminal VS Code.
+
