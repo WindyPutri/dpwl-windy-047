@@ -497,3 +497,84 @@ Pada tahap F.2, saya menambahkan method untuk menampilkan keranjang dan melengka
 
 Setelah perubahan disimpan dan pengujian dilakukan, saya menyimpan hasil praktikum ke folder "dpwl-nim-nama/pertemuan-07/", kemudian menjalankan perintah berikut di terminal VS Code:
 
+F.3. Membuat Halaman Konfirmasi Transaksi dan Menguji Checkout
+
+1. Tujuan
+
+Pada tahap ini, saya membuat halaman konfirmasi transaksi untuk menampilkan rincian penyewaan kendaraan sebelum transaksi diajukan kepada admin. Halaman ini menampilkan total biaya sewa, uang muka (DP) sebesar 30%, dan sisa pembayaran setelah DP.
+
+Setelah penyewa memeriksa rincian transaksi, penyewa dapat mengajukan transaksi melalui tombol konfirmasi. Sistem kemudian mencatat pembayaran DP dengan status "pending" dan mengubah status transaksi menjadi "diajukan".
+
+2. Berkas yang Dikerjakan
+
+Berkas yang dibuat dan digunakan pada tahap ini adalah:
+
+- "application/views/transaksi/konfirmasi.php"
+- "application/controllers/Transaksi_controller.php"
+- "application/config/routes.php"
+
+3. Langkah Pengerjaan
+
+a. Membuat halaman konfirmasi transaksi
+
+Saya membuat berkas "konfirmasi.php" di dalam folder "application/views/transaksi/".
+
+Halaman ini digunakan untuk menampilkan:
+
+- Kode transaksi.
+- Tanggal mulai dan selesai penyewaan.
+- Waktu pengambilan kendaraan.
+- Daftar kendaraan yang disewa.
+- Harga sewa per hari, durasi, dan subtotal.
+- Total biaya sewa.
+- DP sebesar 30% dari total biaya.
+- Sisa pembayaran setelah DP.
+
+Data ditampilkan menggunakan "htmlspecialchars()" untuk membantu mencegah keluaran HTML yang tidak aman.
+
+b. Menghubungkan halaman konfirmasi dengan controller
+
+Halaman konfirmasi menerima data keranjang, total sewa, nominal DP, dan sisa pembayaran dari method "checkout()" pada "Transaksi_controller.php".
+
+Formulir konfirmasi mengirimkan "kode_sewa" menggunakan metode "POST" ke route "transaksi/checkout".
+
+c. Menguji tampilan konfirmasi checkout
+
+Saya menjalankan aplikasi melalui Laragon, kemudian login sebagai penyewa yang memiliki keranjang berisi minimal satu kendaraan.
+
+Setelah membuka halaman keranjang, saya menekan tombol Checkout / Lihat Konfirmasi untuk memastikan halaman konfirmasi menampilkan rincian penyewaan dan perhitungan pembayaran dengan benar.
+
+d. Menguji proses checkout
+
+Saya memeriksa kembali rincian transaksi, kemudian menekan tombol Konfirmasi dan Ajukan Transaksi.
+
+Selanjutnya, saya memeriksa hasil proses checkout pada aplikasi dan database melalui phpMyAdmin. Status transaksi pada tabel "t_sewa" seharusnya berubah dari "keranjang" menjadi "diajukan". Tabel "t_bayar" juga seharusnya memiliki satu catatan pembayaran DP dengan ketentuan:
+
+- "jns_byr" bernilai "dp".
+- "mtode_byr" bernilai "transfer".
+- Nominal pembayaran sesuai DP 30%.
+- "sttus_byr" bernilai "pending".
+
+Checkout pada tahap P7 merupakan proses pengajuan transaksi kepada admin, bukan bukti bahwa pembayaran telah dilakukan atau transaksi telah disetujui.
+
+4. Hasil Pengujian
+
+No.| Pengujian| Hasil Aktual
+1| Halaman konfirmasi menampilkan kode transaksi dan periode sewa| Belum diverifikasi
+2| Daftar kendaraan, harga, durasi, dan subtotal tampil dengan benar| Belum diverifikasi
+3| Total sewa, DP 30%, dan sisa pembayaran dihitung dengan benar| Belum diverifikasi
+4| Tombol kembali membawa penyewa ke keranjang dengan kode transaksi yang sama| Belum diverifikasi
+5| Checkout mengubah status transaksi menjadi "diajukan"| Belum diverifikasi
+6| Catatan DP tersimpan dengan status "pending"| Belum diverifikasi
+7| Transaksi yang sudah diajukan tidak dapat di-checkout kembali sebagai keranjang aktif| Belum diverifikasi
+
+Catatan: Ubah keterangan hasil aktual setelah pengujian benar-benar dilakukan. Jika berhasil, tulis “Berhasil”; jika gagal, catat kendala yang ditemukan.
+
+5. Kesimpulan
+
+Pada tahap F.3, saya membuat halaman konfirmasi transaksi yang menampilkan rincian penyewaan kendaraan, total biaya sewa, DP 30%, dan sisa pembayaran. Saya juga melakukan pengujian terhadap tampilan konfirmasi dan proses checkout untuk memastikan transaksi dapat diajukan kepada admin serta dicatat ke dalam database sesuai ketentuan modul.
+
+6. Git dan GitHub
+
+Setelah perubahan disalin ke folder "dpwl-nim-nama/pertemuan-07", saya menyimpan dokumentasi dan kode menggunakan Git dengan perintah berikut:
+
