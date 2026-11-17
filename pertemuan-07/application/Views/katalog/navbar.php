@@ -5,6 +5,11 @@ unset($_SESSION['flash_penyewa_nav']);
 $e = static function ($value): string {
 return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 };
+// P7: menghitung jumlah mobil di keranjang penyewa
+$jumlahKeranjang = (int) ($jumlahKeranjang ?? 0);
+// P7: menampilkan flash message untuk katalog
+$flashKatalog = $_SESSION['flash_transaksi'] ?? null;
+unset($_SESSION['flash_transaksi']);
 ?>
 <!-- Start Top Nav -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -21,10 +26,16 @@ href="mailto:info@company.com">info@company.com</a>
 <div>
 <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
 class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-<a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fainstagram fa-sm fa-fw me-2"></i></a>
+
+<a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-
+instagram fa-sm fa-fw me-2"></i></a>
+
 <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter
 fa-sm fa-fw me-2"></i></a>
-<a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab falinkedin fa-sm fa-fw"></i></a>
+
+<a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-
+linkedin fa-sm fa-fw"></i></a>
+
 </div>
 </div>
 </div>
@@ -38,10 +49,17 @@ class="navbar-brand text-success logo h1 align-self-center"
 href="<?= htmlspecialchars(site_url('katalog'), ENT_QUOTES, 'UTF-8') ?>">
 Rental
 </a>
-<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bstarget="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" arialabel="Toggle navigation">
+
+<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-
+target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-
+label="Toggle navigation">
+
 <span class="navbar-toggler-icon"></span>
 </button>
-<div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lgbetween" id="templatemo_main_nav">
+
+<div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-
+between" id="templatemo_main_nav">
+
 <div class="flex-fill">
 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
 <li class="nav-item">
@@ -92,13 +110,21 @@ Logout
 </div>
 </div>
 </div>
-<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bstarget="#templatemo_search">
+
+<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-
+target="#templatemo_search">
+
 <i class="fa fa-fw fa-search text-dark mr-2"></i>
 </a>
 <?php if ($isPenyewaLogin): ?>
-<a class="nav-icon position-relative text-decoration-none" href="#">
+    <a class="nav-icon position-relative text-decoration-none" href="<?=
+$e(site_url('transaksi/keranjang')) ?>" aria-label="Keranjang, <?= $jumlahKeranjang ?> kendaraan">
+
 <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-<span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bglight text-dark">7</span>
+
+<span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-
+light text-dark"><?= $jumlahKeranjang ?></span>
+
 </a>
 <!-- Ikon Profil Penyewa -->
 <a
@@ -124,8 +150,25 @@ aria-label="Profil Saya">
 </div>
 </div>
 <?php endif; ?>
+<?php if (is_array($flashKatalog) && !empty($flashKatalog['message'])): ?>
+<div class="alert alert-<?= $e(
+
+($flashKatalog['type'] ?? '') === 'success' ? 'success' : 'danger'
+) ?> alert-dismissible fade show m-3" role="alert">
+
+<?= $e($flashKatalog['message']) ?>
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="alert"
+aria-label="Tutup"></button>
+</div>
+<?php endif; ?>
 <!-- Modal -->
-<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" arialabelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-
+labelledby="exampleModalLabel" aria-hidden="true">
+
 <div class="modal-dialog modal-lg" role="document">
 <div class="w-100 pt-1 mb-5 text-right">
 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

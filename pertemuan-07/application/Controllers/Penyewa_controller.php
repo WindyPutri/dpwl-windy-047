@@ -1,11 +1,14 @@
 <?php
 require_once APPPATH . 'models/Penyewa_model.php';
+require_once APPPATH . 'models/Transaksi_model.php';
 class Penyewa_controller extends Controller
 {
 private Penyewa_model $model;
+private Transaksi_model $transaksiModel;
 public function __construct()
 {
 $this->model = new Penyewa_model();
+$this->transaksiModel = new Transaksi_model();
 }
 public function profil(): void
 {
@@ -28,11 +31,13 @@ exit;
 }
 $flash = $_SESSION['flash_profil_penyewa'] ?? null;
 unset($_SESSION['flash_profil_penyewa']);
+$jumlahKeranjang = $this->transaksiModel->getJumlahMobilKeranjang($userPlg);
 $this->view('penyewa/profil', [
 'profil' => $profil,
 'flash' => $flash,
 'error' => null,
-'old' => []
+'old' => [],
+'jumlahKeranjang' => $jumlahKeranjang
 ]);
 return;
 } catch (Throwable $e) {
@@ -106,12 +111,14 @@ throw new RuntimeException(
 }
 }
 }
+$jumlahKeranjang = $this->transaksiModel->getJumlahMobilKeranjang($userPlg);
 if ($error !== null) {
-    $this->view('penyewa/profil', [
+$this->view('penyewa/profil', [
 'profil' => $profil,
 'flash' => null,
 'error' => $error,
-'old' => $old
+'old' => $old,
+'jumlahKeranjang' => $jumlahKeranjang
 ]);
 return;
 }
@@ -219,7 +226,7 @@ mb_strlen($nama) > 100 ||
 $nama
 )
 ) {
-return 'Nama lengkap wajib diisi, maksimal 100 karakter, dan hanya berisi huruf serta pemisah
+    return 'Nama lengkap wajib diisi, maksimal 100 karakter, dan hanya berisi huruf serta pemisah
 nama yang wajar.';
 }
 if (
@@ -246,11 +253,16 @@ array $profil,
 array $old,
 string $error
 ): void {
+$userPlg = trim((string) ($_SESSION['penyewa_user_plg'] ?? ''));
+$jumlahKeranjang = $userPlg === ''
+? 0
+: $this->transaksiModel->getJumlahMobilKeranjang($userPlg);
 $this->view('penyewa/profil', [
 'profil' => $profil,
 'flash' => null,
 'error' => $error,
-'old' => $old
+'old' => $old,
+'jumlahKeranjang' => $jumlahKeranjang
 ]);
 }
 private function uploadFotoPenyewa(string $field): array
@@ -275,7 +287,7 @@ return [
 }
 $file = $_FILES[$field];
 if (($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
-return [
+    return [
 'success' => false,
 'filename' => null,
 'error' => 'Unggah foto gagal. Periksa ukuran file dan konfigurasi PHP.'
@@ -346,7 +358,7 @@ $file['tmp_name'],
 $uploadDir . $filename
 )) {
 return [
-    'success' => false,
+'success' => false,
 'filename' => null,
 'error' => 'Foto gagal dipindahkan ke folder penyimpanan.'
 ];

@@ -101,3 +101,29 @@ git push
 5. Kesimpulan
 
 Penambahan route transaksi bertujuan menghubungkan URL "transaksi/tambah" dengan method "tambah()" pada "Transaksi_controller". Pengujian fitur penambahan kendaraan ke keranjang dilakukan setelah formulir, controller, dan model yang diperlukan telah terintegrasi.
+
+README P7 – Bagian C
+
+Integrasi Tombol Tambah ke Keranjang pada Halaman Detail dan Katalog Kendaraan
+
+1. Tujuan
+
+Pada tahap ini, saya melakukan perubahan pada halaman detail kendaraan dan halaman katalog kendaraan agar tombol Tambah ke Keranjang dapat menyesuaikan dengan status kendaraan dan status login penyewa.
+
+2. Perubahan yang Dilakukan
+
+C.1. Mengubah Formulir pada Halaman Detail Kendaraan
+
+Berkas yang diubah:
+
+- "application/views/katalog/detail.php"
+
+Perubahan yang dilakukan:
+
+1. Menyesuaikan tampilan tombol berdasarkan status kendaraan.
+2. Jika kendaraan tidak tersedia, sistem menampilkan pesan bahwa kendaraan tidak dapat ditambahkan ke keranjang.
+3. Jika penyewa belum login, sistem menampilkan informasi serta tombol Login Penyewa dan Registrasi.
+4. Jika penyewa sudah login dan kendaraan tersedia, tombol Tambah ke Keranjang ditampilkan.
+5. Formulir menggunakan metode POST dan mengirimkan nomor kendaraan ("no_plat") ke route "transaksi/tambah".
+6. Menambahkan nilai "return_to" dengan isi "detail" agar pengguna kembali ke halaman detail setelah proses penambahan kendaraan.
+
