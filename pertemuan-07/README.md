@@ -127,3 +127,34 @@ Perubahan yang dilakukan:
 5. Formulir menggunakan metode POST dan mengirimkan nomor kendaraan ("no_plat") ke route "transaksi/tambah".
 6. Menambahkan nilai "return_to" dengan isi "detail" agar pengguna kembali ke halaman detail setelah proses penambahan kendaraan.
 
+C.2. Mengubah Tombol pada Halaman Katalog Kendaraan
+
+Berkas yang diubah:
+
+- "application/views/katalog/index.php"
+
+Perubahan yang dilakukan:
+
+1. Menyesuaikan tombol berdasarkan status kendaraan dan status login penyewa.
+2. Jika kendaraan tersedia dan penyewa sudah login, tombol Tambah ke Keranjang dapat digunakan.
+3. Jika penyewa belum login, tombol Tambah ke Keranjang ditampilkan dalam keadaan nonaktif.
+4. Jika kendaraan tidak tersedia, tombol diganti menjadi Tidak Dapat Disewa dan tidak dapat digunakan.
+5. Formulir menggunakan metode POST dengan mengirimkan "no_plat" dan "return_to" bernilai "katalog" ke route "transaksi/tambah".
+
+3. Hasil Pengujian
+
+Pengujian dilakukan melalui browser menggunakan localhost untuk memeriksa tampilan dan kondisi tombol.
+
+No.| Skenario Pengujian| Hasil yang Diharapkan
+1| Membuka detail kendaraan tanpa login| Informasi login, tombol Login Penyewa, dan Registrasi tampil.
+2| Membuka detail kendaraan yang tidak tersedia| Pesan kendaraan tidak dapat ditambahkan ke keranjang tampil.
+3| Membuka detail kendaraan setelah login sebagai penyewa| Tombol Tambah ke Keranjang tampil untuk kendaraan yang tersedia.
+4| Membuka katalog tanpa login| Tombol Tambah ke Keranjang dalam keadaan nonaktif.
+5| Membuka katalog setelah login sebagai penyewa| Tombol Tambah ke Keranjang aktif untuk kendaraan yang tersedia.
+6| Membuka katalog dengan kendaraan tidak tersedia| Tombol Tidak Dapat Disewa tampil dalam keadaan nonaktif.
+
+Catatan hasil pengujian aktual: Isi hasil pengujian berdasarkan kondisi yang benar-benar muncul di localhost. Pada bagian C, pengujian difokuskan pada tampilan dan kondisi tombol. Pengiriman formulir serta penyimpanan transaksi diuji setelah integrasi Controller dan Model siap.
+
+4. Kesimpulan
+
+Berdasarkan pekerjaan pada bagian C, halaman detail dan katalog kendaraan telah disesuaikan agar tombol Tambah ke Keranjang mengikuti status ketersediaan kendaraan dan status login penyewa. Formulir juga diarahkan ke route "transaksi/tambah" menggunakan metode POST. Tahap ini menjadi persiapan sebelum pengujian proses penambahan kendaraan ke keranjang secara fungsional.
