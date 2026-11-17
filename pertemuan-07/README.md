@@ -329,3 +329,57 @@ Pada tahap D.2.3, saya memperbarui "Penyewa_controller.php" agar jumlah kendaraa
 
 Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", kemudian jalankan perintah berikut melalui terminal VS Code.
 
+README P7 – Bagian E.1
+
+
+1. Tujuan
+
+Pada tahap E.1, saya menambahkan method "tambahKeKeranjang()" pada Model transaksi. Method ini digunakan untuk menambahkan kendaraan yang dipilih penyewa ke keranjang dengan menyimpan data transaksi ke database menggunakan pola Header-Detail.
+
+Informasi utama transaksi disimpan pada tabel "t_sewa", sedangkan data kendaraan yang dipilih disimpan pada tabel "t_pilih".
+
+2. Berkas yang Diubah
+
+Berkas yang diperbarui adalah:
+
+"application/models/Transaksi_model.php"
+
+3. Perubahan yang Dilakukan
+
+Perubahan yang saya lakukan meliputi:
+
+1. Menambahkan helper "namaKunciKeranjang()" untuk membuat identitas kunci keranjang berdasarkan akun penyewa.
+2. Menambahkan helper "kunciKendaraan()" untuk mencari dan mengunci data kendaraan yang dipilih.
+3. Menambahkan helper "hitungHariSewa()" untuk menghitung durasi penyewaan.
+4. Menambahkan helper normalisasi waktu pengambilan agar format waktu sesuai.
+5. Menambahkan method "tambahKeKeranjang()" untuk memproses penambahan kendaraan ke keranjang.
+6. Memeriksa username penyewa dan nomor polisi kendaraan agar tidak kosong.
+7. Memastikan kendaraan memiliki status "tersedia" sebelum ditambahkan ke keranjang.
+8. Memeriksa apakah penyewa sudah memiliki keranjang aktif. Jika sudah ada, transaksi tersebut digunakan kembali. Jika belum ada, sistem membuat transaksi baru.
+9. Menggunakan transaksi database dan mekanisme penguncian untuk membantu menjaga konsistensi data serta mencegah pembuatan keranjang aktif ganda.
+10. Menambahkan kendaraan ke tabel detail transaksi sesuai dengan struktur database yang digunakan.
+
+Method ini juga memerlukan helper "ambilKunci()", "lepasKunci()", dan "kunciDanBuatKodeSewa()" yang telah dibuat pada bagian B.
+
+4. Hasil Pengujian
+
+Pengujian dilakukan setelah Model transaksi dan integrasi Controller tersedia.
+
+No.| Skenario Pengujian| Hasil yang Diharapkan
+1| Menambahkan kendaraan dengan akun penyewa yang valid| Kendaraan dapat diproses untuk ditambahkan ke keranjang.
+2| Mengirim username atau nomor polisi kosong| Sistem menolak permintaan dengan pesan kesalahan.
+3| Menambahkan kendaraan yang tidak tersedia| Sistem menolak penambahan kendaraan.
+4| Penyewa sudah memiliki keranjang aktif| Sistem menggunakan kembali keranjang aktif tersebut.
+5| Penyewa belum memiliki keranjang aktif| Sistem membuat transaksi keranjang baru.
+6| Terjadi kesalahan ketika proses penambahan berlangsung| Transaksi database dibatalkan agar perubahan tidak tersimpan sebagian.
+
+Catatan: Pada tahap E.1, pengujian fungsional melalui tombol katalog dan detail dilakukan setelah Controller serta formulir terintegrasi. Isi hasil aktual sesuai dengan pengujian yang benar-benar dilakukan.
+
+5. Kesimpulan
+
+Pada tahap E.1, saya mengembangkan Model transaksi dengan menambahkan method "tambahKeKeranjang()" beserta helper yang diperlukan. Method ini memeriksa ketersediaan kendaraan, mencari atau membuat keranjang aktif, dan menambahkan kendaraan ke transaksi. Perubahan ini menjadi dasar agar tombol Tambah ke Keranjang pada halaman katalog dan detail kendaraan dapat berfungsi setelah integrasi selesai.
+
+6. Perintah Git
+
+Setelah perubahan selesai, salin seluruh isi workspace "dpwl-nim" ke folder "dpwl-nim-nama/pertemuan-07", kemudian jalankan perintah berikut pada terminal VS Code.
+
